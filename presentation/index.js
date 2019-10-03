@@ -33,7 +33,9 @@ const theme = createTheme({
 
 const images = {
   gqlScheme: require('../assets/images/gql-schema.png'),
-  oneCallGql: require('../assets/images/one-cal-gql.png')
+  oneCallGql: require('../assets/images/one-cal-gql.png'),
+  bff: require('../assets/images/bff.jpg'),
+  bff2: require('../assets/images/bff2.png'),
 };
 
 export default class Presentation extends React.Component {
@@ -124,6 +126,14 @@ export default class Presentation extends React.Component {
 
         <Slide textColor="textColorDark">
           <Heading size={5} textColor="headersColor">
+            👍 Backend for Frontend
+          </Heading>
+          {/*<Image src={images.bff}/>*/}
+          <Image width={700} src={images.bff2}/>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
             👍 Fetching data with a single API call
           </Heading>
           <Image src={images.oneCallGql}/>
@@ -133,6 +143,13 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="headersColor">
             👍 Hierarchical
           </Heading>
+          <CodePane
+            lang="js"
+            textSize="0.7em"
+            theme="light"
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/6-gql-hierarchical.example')}
+          />
         </Slide>
 
         <Slide textColor="textColorDark">
@@ -194,7 +211,13 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="headersColor">
             👍 Code-sharing
           </Heading>
-
+          <CodePane
+            lang="js"
+            textSize="0.9em"
+            theme="light"
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/7-gql-fragment.example')}
+          />
         </Slide>
 
         <Slide textColor="textColorDark">
@@ -262,9 +285,17 @@ export default class Presentation extends React.Component {
           </CustomText>
         </Slide>
 
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            <Link href={"https://graphql.org/users/"} target="_blank">Who uses GraphQL?</Link>
+          </Heading>
+        </Slide>
+
         <List style={{ width: "50%", margin: "auto" }}>
           <ListItem>https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</ListItem>
           <ListItem>https://samnewman.io/patterns/architectural/bff/</ListItem>
+          <ListItem>https://medium.com/netflix-techblog/our-learnings-from-adopting-graphql-f099de39ae5f</ListItem>
+          <ListItem>https://github.blog/2016-09-14-the-github-graphql-api/</ListItem>
         </List>
 
 

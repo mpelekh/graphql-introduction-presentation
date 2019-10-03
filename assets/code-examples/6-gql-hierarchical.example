@@ -1,0 +1,24 @@
+{
+  organization(login: "Microsoft") {
+    repositories(first: 3,
+                 orderBy: { field: STARGAZERS,
+                             direction: DESC }) {
+      totalCount
+      totalDiskUsage
+      nodes {
+        name
+        homepageUrl
+        stargazers {
+          totalCount
+        }
+        commitComments(last: 1) {
+          nodes {
+            author {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
