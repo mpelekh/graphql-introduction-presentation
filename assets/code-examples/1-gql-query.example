@@ -1,0 +1,27 @@
+{
+  user(id: 123) {
+    id
+    name
+    isViewerFriend
+    profilePicture(size: 50) {
+      uri
+      width
+      height
+    }
+    friendConnection(first: 5) {
+      totalCount
+      friends {
+        id
+        name
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+

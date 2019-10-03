@@ -1,0 +1,24 @@
+{
+  "data": {
+    "__type": {
+      "name": "User",
+      "fields": [
+        {
+          "name": "bio",
+          "type": {
+            "name": "String"
+          }
+        },
+        {
+          "name": "company",
+          "type": {
+            "name": "String"
+          }
+        },
+        .
+        .
+        .
+      ]
+    }
+  }
+}

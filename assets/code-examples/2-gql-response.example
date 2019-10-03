@@ -1,0 +1,27 @@
+{
+  "data": {
+    "user": {
+      "id": "4802170",
+      "name": "Lee Byron",
+      "isViewerFriend": true,
+      "profilePicture": {
+        "uri": "cdn://pic/4802170/50",
+        "width": 50,
+        "height": 50
+      },
+      "friendConnection": {
+        "totalCount": 13,
+        "friends": [
+          {
+            "id": "305249",
+            "name": "Stephen Shwink"
+          },
+          {
+            "id": "3108935",
+            "name": "Nathaniel Roman"
+          }
+        ]
+      }
+    }
+  }
+}

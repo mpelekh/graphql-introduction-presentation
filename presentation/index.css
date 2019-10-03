@@ -1,0 +1,11 @@
+div.two-code-panes {
+	display: flex;
+	align-items: start;
+	font-size: x-large;
+}
+
+div.two-code-panes > div {
+	min-width: 50%;
+	margin: inherit;
+	margin-right: 10px;
+}
