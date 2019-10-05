@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Import Spectacle Core tags
-import { BlockQuote, Cite, Deck, Heading, ListItem, List, Quote, Slide, Text, CodePane, Fit, Fill, Image, Layout } from 'spectacle';
+import { BlockQuote, Cite, Deck, Heading, ListItem, List, Quote, Slide, Text, CodePane, Fit, Fill, Image, Layout, Code } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 
 // Import Components
@@ -36,6 +36,7 @@ const images = {
   oneCallGql: require('../assets/images/one-cal-gql.png'),
   bff: require('../assets/images/bff.jpg'),
   bff2: require('../assets/images/bff2.png'),
+  falcorLogo: require('../assets/images/falcor-logo.svg')
 };
 
 export default class Presentation extends React.Component {
@@ -95,14 +96,14 @@ export default class Presentation extends React.Component {
           </CustomText>
           <div className="two-code-panes">
             <CodePane
-              lang="js"
+              lang="graphql"
               textSize="0.9em"
               theme="light"
               contentEditable
               source={require('raw-loader!../assets/code-examples/1-gql-query.example')}
             />
             <CodePane
-              lang="js"
+              lang="json"
               textSize="0.9em"
               theme="light"
               contentEditable
@@ -291,11 +292,131 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Other Alternatives
+          </Heading>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <CustomText>
+            GraphQL is an alternative to REST for developing APIs, not a replacement.
+          </CustomText>
+          <CustomText>
+            The main feature of GraphQL is to be able to send a query specifying only the information you need and get exactly that.
+          </CustomText>
+          <CustomText>
+            But you can also achieve this using REST, from passing the name of the fields you want to use in the URL (implementing the parsing and returning logic yourself):
+          </CustomText>
+          <Margin />
+          <Code>
+            GET /books/1492030716?fields=title,pageCount
+          </Code>
+          <Margin/>
+          <CustomText>
+            And it is not difficult to implement. There are <Link href="https://jsonapi.org/implementations/" target="_blank">many JSON API libraries</Link> in many languages.
+          </CustomText>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <CustomText>
+            Do you want the benefits of using a schema and strong types in REST?
+          </CustomText>
+          <CustomText>
+            Use <Link href="https://json-schema.org/" target="_blank">JSON schemas</Link>.
+          </CustomText>
+          <CustomText>
+            There are <Link href="https://json-schema.org/implementations.html" target="_blank">many libraries that implement and support</Link> this specification too.
+          </CustomText>
+          <CustomText>
+            Do you want to use a query language in REST APIs?
+          </CustomText>
+          <CustomText>
+            Try <Link href="https://www.odata.org/" target="_blank">OData</Link>.
+          </CustomText>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Link href="https://netflix.github.io/falcor/" target="_blank">
+            <Image src={images.falcorLogo} />
+          </Link>
+          <CustomText>
+            A JavaScript library for efficient data fetching created by Netflix team.
+          </CustomText>
+          <CustomText>
+            Falcor lets you represent all your remote data sources as a single domain model via a virtual JSON graph.
+            You code the same way no matter where the data is, whether in memory on the client or over the network on the server.
+          </CustomText>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            <Link href="https://graphql.org/code/" target="_blank">GraphQL Implementations</Link>
+          </Heading>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            GraphQL Basics
+          </Heading>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            GraphQL Schema
+          </Heading>
+          <CustomText>
+            A GraphQL schema is at the center of any GraphQL server implementation and describes the functionality available to the clients which connect to it.
+          </CustomText>
+          <CustomText>
+            The core building block within a schema is the "type". Types provide a wide-range of functionality within a schema, including the ability to:
+          </CustomText>
+          <List>
+            <ListItem>Create relationships between types (e.g. between a <Code textColor="#f25cc1">Book</Code> and an <Code textColor="#f25cc1">Author</Code>).</ListItem>
+            <ListItem>Define which data-fetching (querying) and data-manipulation (mutating) operations can be executed by the client.</ListItem>
+            <ListItem>If desired, self-explain what capabilities are available to the client via introspection.</ListItem>
+          </List>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            GraphQL implements Schema Definition Language (SDL) to define a schema
+          </Heading>
+          <CustomText>
+            In a simple example involving books and authors, the SDL might declare:
+          </CustomText>
+          <CodePane
+            someProp
+            lang="graphql"
+            textSize="1em"
+            theme="light"
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/8-gql-sdl.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Scalar Types
+          </Heading>
+          <CustomText>
+            Scalar types represent the leaves of an operation and always resolve to concrete data. The default scalar types which GraphQL offers are:
+          </CustomText>
+          <List>
+            <ListItem><Code textColor="#f25cc1">Int</Code>: Signed 32‐bit integer</ListItem>
+            <ListItem><Code textColor="#f25cc1">Float</Code>: Signed double-precision floating-point value</ListItem>
+            <ListItem><Code textColor="#f25cc1">String</Code>: UTF‐8 character sequence</ListItem>
+            <ListItem><Code textColor="#f25cc1">Boolean</Code>: true or false</ListItem>
+            <ListItem><Code textColor="#f25cc1">ID</Code> (serialized as <Code textColor="#f25cc1">String</Code>): A unique identifier, often used to refetch an object or as the key for a cache. While serialized as a String, ID signifies that it is not intended to be human‐readable</ListItem>
+          </List>
+        </Slide>
+
         <List style={{ width: "50%", margin: "auto" }}>
           <ListItem>https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</ListItem>
           <ListItem>https://samnewman.io/patterns/architectural/bff/</ListItem>
           <ListItem>https://medium.com/netflix-techblog/our-learnings-from-adopting-graphql-f099de39ae5f</ListItem>
           <ListItem>https://github.blog/2016-09-14-the-github-graphql-api/</ListItem>
+          <ListItem>https://blog.logrocket.com/5-reasons-you-shouldnt-be-using-graphql-61c7846e7ed3/</ListItem>
         </List>
 
 
