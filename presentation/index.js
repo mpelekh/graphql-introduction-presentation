@@ -28,7 +28,7 @@ const theme = createTheme({
   textColorLight: '#ffffff',
   textColorDark: '#202020',
   linkColor: '#4682b4',
-  logoColor: '#E10098''
+  logoColor: '#E10098',
 }, {
   primary: "Roboto Condensed",
   secondary: "Ubuntu",
