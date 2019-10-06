@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Import Spectacle Core tags
-import { BlockQuote, Cite, Deck, Heading, ListItem, List, Quote, Slide, Text, CodePane, Fit, Fill, Image, Layout, Code } from 'spectacle';
+import { BlockQuote, Cite, Deck, Heading, ListItem, List, Quote, Slide, Text, CodePane, Fit, Fill, Image, Layout, Code, Appear } from 'spectacle';
 import CodeSlide from 'spectacle-code-slide';
 
 // Import Components
@@ -19,16 +19,20 @@ import createTheme from 'spectacle/lib/themes/default';
 require('normalize.css');
 require('./index.css');
 
+const codeTheme = 'light';
+
 const theme = createTheme({
-  primary: '#f5f6f8',
+  primary: 'wheat',
   secondary: '#202020',
   headersColor: '#202020',
   textColorLight: '#ffffff',
   textColorDark: '#202020',
   linkColor: '#4682b4',
-  logoColor: "#E10098"
+  logoColor: '#E10098''
 }, {
-  primary: 'Montserrat'
+  primary: "Roboto Condensed",
+  secondary: "Ubuntu",
+  tertiary: "monospace"
 });
 
 const images = {
@@ -90,6 +94,13 @@ export default class Presentation extends React.Component {
           </CustomText>
         </Slide>
 
+        <Slide bgColor="black">
+          <BlockQuote>
+            <Quote textSize="56px">When we built Facebook's mobile applications, we needed a data-fetching API powerful enough to describe all of Facebook, yet simple and easy to learn so product developers can focus on building things quickly</Quote>
+            <Cite>Lee Byron</Cite>
+          </BlockQuote>
+        </Slide>
+
         <Slide textColor="textColorDark">
           <CustomText>
             A GraphQL query is a string that is sent to a server to be interpreted and fulfilled, which then returns JSON back to the client.
@@ -97,15 +108,15 @@ export default class Presentation extends React.Component {
           <div className="two-code-panes">
             <CodePane
               lang="graphql"
-              textSize="0.9em"
-              theme="light"
+              textSize="1em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/1-gql-query.example')}
             />
             <CodePane
               lang="json"
-              textSize="0.9em"
-              theme="light"
+              textSize="1em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/2-gql-response.example')}
             />
@@ -145,9 +156,9 @@ export default class Presentation extends React.Component {
             👍 Hierarchical
           </Heading>
           <CodePane
-            lang="js"
-            textSize="0.7em"
-            theme="light"
+            lang="graphql"
+            textSize="0.8em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/6-gql-hierarchical.example')}
           />
@@ -168,9 +179,9 @@ export default class Presentation extends React.Component {
             👍 Validation and type checking out-of-the-box
           </Heading>
           <CodePane
-            lang="js"
-            textSize="0.9em"
-            theme="light"
+            lang="graphql"
+            textSize="1.5em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/5-gql-schema.example')}
           />
@@ -182,16 +193,16 @@ export default class Presentation extends React.Component {
           </Heading>
           <div className="two-code-panes">
             <CodePane
-              lang="js"
-              textSize="0.9em"
-              theme="light"
+              lang="graphql"
+              textSize="1em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/3-gql-introspection.example')}
             />
             <CodePane
-              lang="js"
-              textSize="0.9em"
-              theme="light"
+              lang="json"
+              textSize="1em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/4-gql-introspection-response.example')}
             />
@@ -213,9 +224,9 @@ export default class Presentation extends React.Component {
             👍 Code-sharing
           </Heading>
           <CodePane
-            lang="js"
-            textSize="0.9em"
-            theme="light"
+            lang="graphql"
+            textSize="1em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/7-gql-fragment.example')}
           />
@@ -309,7 +320,7 @@ export default class Presentation extends React.Component {
             But you can also achieve this using REST, from passing the name of the fields you want to use in the URL (implementing the parsing and returning logic yourself):
           </CustomText>
           <Margin />
-          <Code>
+          <Code textColor="#f25cc1">
             GET /books/1492030716?fields=title,pageCount
           </Code>
           <Margin/>
@@ -369,12 +380,12 @@ export default class Presentation extends React.Component {
             A GraphQL schema is at the center of any GraphQL server implementation and describes the functionality available to the clients which connect to it.
           </CustomText>
           <CustomText>
-            The core building block within a schema is the "type". Types provide a wide-range of functionality within a schema, including the ability to:
+            The core building block within a schema is the <Code textColor="#f25cc1">type</Code>. Types provide a wide-range of functionality within a schema, including the ability to:
           </CustomText>
           <List>
-            <ListItem>Create relationships between types (e.g. between a <Code textColor="#f25cc1">Book</Code> and an <Code textColor="#f25cc1">Author</Code>).</ListItem>
-            <ListItem>Define which data-fetching (querying) and data-manipulation (mutating) operations can be executed by the client.</ListItem>
-            <ListItem>If desired, self-explain what capabilities are available to the client via introspection.</ListItem>
+            <Appear><ListItem>Create relationships between types (e.g. between a <Code textColor="#f25cc1">Book</Code> and an <Code textColor="#f25cc1">Author</Code>).</ListItem></Appear>
+            <Appear><ListItem>Define which data-fetching (querying) and data-manipulation (mutating) operations can be executed by the client.</ListItem></Appear>
+            <Appear><ListItem>If desired, self-explain what capabilities are available to the client via introspection.</ListItem></Appear>
           </List>
         </Slide>
 
@@ -387,8 +398,8 @@ export default class Presentation extends React.Component {
           </CustomText>
           <CodePane
             lang="graphql"
-            textSize="1em"
-            theme="light"
+            textSize="1.3em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/8-gql-sdl.graphql')}
           />
@@ -419,8 +430,8 @@ export default class Presentation extends React.Component {
           </CustomText>
           <CodePane
             lang="graphql"
-            textSize="1em"
-            theme="light"
+            textSize="1.3em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/9-gql-object-types.graphql')}
           />
@@ -439,8 +450,8 @@ export default class Presentation extends React.Component {
           </CustomText>
           <CodePane
             lang="graphql"
-            textSize="1em"
-            theme="light"
+            textSize="1.3em"
+            theme={codeTheme}
             contentEditable
             source={require('raw-loader!../assets/code-examples/10-gql-query-type.graphql')}
           />
@@ -453,15 +464,15 @@ export default class Presentation extends React.Component {
           <div className="two-code-panes">
             <CodePane
               lang="graphql"
-              textSize="0.9em"
-              theme="light"
+              textSize="1.5em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/11-gql-query.graphql')}
             />
             <CodePane
               lang="json"
-              textSize="0.9em"
-              theme="light"
+              textSize="1.5em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/12-gql-response.examaple')}
             />
@@ -475,15 +486,15 @@ export default class Presentation extends React.Component {
           <div className="two-code-panes">
             <CodePane
               lang="graphql"
-              textSize="0.9em"
-              theme="light"
+              textSize="1.5em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/13-gql-query.graphql')}
             />
             <CodePane
               lang="json"
-              textSize="0.9em"
-              theme="light"
+              textSize="1.5em"
+              theme={codeTheme}
               contentEditable
               source={require('raw-loader!../assets/code-examples/14-gql-response.examaple')}
             />
@@ -496,6 +507,8 @@ export default class Presentation extends React.Component {
           <ListItem>https://medium.com/netflix-techblog/our-learnings-from-adopting-graphql-f099de39ae5f</ListItem>
           <ListItem>https://github.blog/2016-09-14-the-github-graphql-api/</ListItem>
           <ListItem>https://blog.logrocket.com/5-reasons-you-shouldnt-be-using-graphql-61c7846e7ed3/</ListItem>
+          <ListItem>https://github.com/graphql/graphql-spec</ListItem>
+          <ListItem>https://blog.apollographql.com/graphql-vs-falcor-4f1e9cbf7504</ListItem>
         </List>
 
 
