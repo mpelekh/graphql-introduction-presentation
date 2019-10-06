@@ -386,7 +386,6 @@ export default class Presentation extends React.Component {
             In a simple example involving books and authors, the SDL might declare:
           </CustomText>
           <CodePane
-            someProp
             lang="graphql"
             textSize="1em"
             theme="light"
@@ -409,6 +408,86 @@ export default class Presentation extends React.Component {
             <ListItem><Code textColor="#f25cc1">Boolean</Code>: true or false</ListItem>
             <ListItem><Code textColor="#f25cc1">ID</Code> (serialized as <Code textColor="#f25cc1">String</Code>): A unique identifier, often used to refetch an object or as the key for a cache. While serialized as a String, ID signifies that it is not intended to be human‐readable</ListItem>
           </List>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Object Types
+          </Heading>
+          <CustomText>
+            The object type is the most common type used in a schema and represents a group of fields. Each field inside of an object type maps to another type, allowing nested types and circular references.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1em"
+            theme="light"
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/9-gql-object-types.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            The Query type
+          </Heading>
+          <CustomText>
+            A GraphQL query is for fetching data and compares to the <Code textColor="#f25cc1">GET</Code> verb in REST-based APIs.
+          </CustomText>
+          <CustomText>
+            The <Code textColor="#f25cc1">Query</Code> type is one of many root-level types which defines functionality (it doesn't actually trigger a query)
+            for clients and acts as an entry-point to other more specific types within the schema.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1em"
+            theme="light"
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/10-gql-query-type.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <CustomText>
+            Based on the SDL defined above, a client could request a list of all books and a separate list of all authors by sending a single <Code textColor="#f25cc1">query</Code> with exactly what it wishes to receive in return:
+          </CustomText>
+          <div className="two-code-panes">
+            <CodePane
+              lang="graphql"
+              textSize="0.9em"
+              theme="light"
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/11-gql-query.graphql')}
+            />
+            <CodePane
+              lang="json"
+              textSize="0.9em"
+              theme="light"
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/12-gql-response.examaple')}
+            />
+          </div>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <CustomText>
+            Thanks to the relationship between <Code textColor="#f25cc1">Book</Code> and <Code textColor="#f25cc1">Author</Code>, which is defined in the SDL above, such a <Code textColor="#f25cc1">query</Code> could be expressed as:
+          </CustomText>
+          <div className="two-code-panes">
+            <CodePane
+              lang="graphql"
+              textSize="0.9em"
+              theme="light"
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/13-gql-query.graphql')}
+            />
+            <CodePane
+              lang="json"
+              textSize="0.9em"
+              theme="light"
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/14-gql-response.examaple')}
+            />
+          </div>
         </Slide>
 
         <List style={{ width: "50%", margin: "auto" }}>
