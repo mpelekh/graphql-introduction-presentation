@@ -63,7 +63,7 @@ export default class Presentation extends React.Component {
             <ListItem>Why GraphQL?</ListItem>
             <ListItem>GraphQL vs REST</ListItem>
             <ListItem>Alternatives</ListItem>
-            <ListItem>Who uses GraphQL</ListItem>
+            <ListItem>Who uses GraphQL?</ListItem>
             <ListItem>GraphQL Basics</ListItem>
             <ListItem>Demo</ListItem>
             <ListItem>Conclusions</ListItem>
@@ -500,6 +500,134 @@ export default class Presentation extends React.Component {
             />
           </div>
         </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            The Mutation type
+          </Heading>
+          <CustomText>
+            Mutations are operations sent to the server to create, update or delete data.
+            These are comparable to the <Code textColor="#f25cc1">PUT</Code>, <Code textColor="#f25cc1">POST</Code>, <Code textColor="#f25cc1">PATCH</Code> and <Code textColor="#f25cc1">DELETE</Code> verbs on REST-based APIs.
+            A GraphQL query is for fetching data and compares to the <Code textColor="#f25cc1">GET</Code> verb in REST-based APIs.
+          </CustomText>
+          <CustomText>
+            Much like how the <Code textColor="#f25cc1">Query</Code> type defines the entry-points for data-fetching operations on a GraphQL server,
+            the root-level <Code textColor="#f25cc1">Mutation</Code> type specifies the entry points for data-manipulation operations.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1.3em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/15-gql-mutation.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <CustomText>
+            We request the book's title along with the name of the author. The result returned from this mutation would be:
+          </CustomText>
+          <div className="two-code-panes">
+            <CodePane
+              lang="graphql"
+              textSize="1.5em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/16-gql-mutation.graphql')}
+            />
+            <CodePane
+              lang="json"
+              textSize="1.5em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/17-gql-response.example')}
+            />
+          </div>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Input Types
+          </Heading>
+          <CustomText>
+            Input types are a special type in GraphQL which allows an object to be passed
+            as an argument to both queries and mutations and is helpful when simple scalar types aren't sufficient.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/18-gql-mutation.graphql')}
+          />
+          <Heading size={6} textColor="headersColor">
+            vs
+          </Heading>
+          <CodePane
+            lang="graphql"
+            textSize="1em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/19-gql-mutation-with-input.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Custom scalars
+          </Heading>
+          <CustomText>
+            The GraphQL specification includes the following default scalar types: <Code textColor="#f25cc1">Int</Code>, <Code textColor="#f25cc1">Float</Code>, <Code textColor="#f25cc1">String</Code>, <Code textColor="#f25cc1">Boolean</Code> and <Code textColor="#f25cc1">ID</Code>.
+            While this covers most of the use cases, some need to support custom atomic data types (e.g. Date), or add validation to an existing type.
+          </CustomText>
+          <CustomText>
+            The following is the example of the <Code textColor="#f25cc1">Date</Code> data type.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/20-gql-custom-scalar-type.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Enums
+          </Heading>
+          <CustomText>
+            An Enum is similar to a scalar type, but it can only be one of several values defined in the schema.
+            Enums are most useful in a situation where the user must pick from a prescribed list of options.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="0.7em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/21-gql-enum.graphql')}
+          />
+          <CodePane
+            lang="graphql"
+            textSize="0.7em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/22-gql-query-with-enum.graphql')}
+          />
+          <CustomText>
+            A query might look like this:
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="0.7em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/23-gql-query-with-enum.graphql')}
+          />
+        </Slide>
+
+
+        {/*https://www.apollographql.com/docs/apollo-server/schema/schema/#documenting-your-schema*/}
 
         <List style={{ width: "50%", margin: "auto" }}>
           <ListItem>https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</ListItem>

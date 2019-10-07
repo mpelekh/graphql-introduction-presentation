@@ -1,0 +1,3 @@
+query {
+  avatar(borderColor: RED)
+}

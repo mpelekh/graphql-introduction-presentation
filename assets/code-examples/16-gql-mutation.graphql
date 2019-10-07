@@ -1,0 +1,9 @@
+mutation {
+  addBook(title: "Fox in Socks", author: "Dr. Seuss") {
+    title
+    author {
+      name
+    }
+  }
+}
+

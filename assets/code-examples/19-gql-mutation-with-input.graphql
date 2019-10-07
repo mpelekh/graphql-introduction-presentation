@@ -1,0 +1,9 @@
+type Mutation {
+  createPost(post: PostAndMediaInput): Post
+}
+
+input PostAndMediaInput {
+  title: String
+  body: String
+  mediaUrls: [String]
+}

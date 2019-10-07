@@ -1,0 +1,3 @@
+type Mutation {
+  createPost(title: String, body: String, mediaUrls: [String]): Post
+}
