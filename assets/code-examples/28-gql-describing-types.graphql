@@ -1,0 +1,13 @@
+"Description for the type"
+type MyObjectType {
+  """
+  Description for field
+  Supports **multi-line** description for your [API](http://example.com)!
+  """
+  myField: String!
+
+  otherField(
+    "Description for argument"
+    arg: Int
+  )
+}

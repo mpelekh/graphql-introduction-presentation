@@ -1,0 +1,13 @@
+{
+  search(contains: "") {
+    ... on Book {
+      title
+    }
+    ... on Author {
+      name
+    }
+  }
+}
+
+
+

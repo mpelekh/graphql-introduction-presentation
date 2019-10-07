@@ -626,8 +626,72 @@ export default class Presentation extends React.Component {
           />
         </Slide>
 
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Union type
+          </Heading>
+          <CustomText>
+            The <Code textColor="#f25cc1">Union</Code> type indicates that a field can return more than one object type, but doesn't define specific fields itself.
+          </CustomText>
+          <div className="two-code-panes">
+            <CodePane
+              lang="graphql"
+              textSize="1.3em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/24-gql-union.graphql')}
+            />
+            <CodePane
+              lang="graphql"
+              textSize="1.3em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/25-gql-union-query.graphql')}
+            />
+          </div>
+        </Slide>
 
-        {/*https://www.apollographql.com/docs/apollo-server/schema/schema/#documenting-your-schema*/}
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Interface type
+          </Heading>
+          <CustomText>
+            Interfaces are a powerful way to build and use GraphQL schemas through the use of abstract types.
+            Abstract types can't be used directly in schema, but can be used as building blocks for creating explicit types.
+          </CustomText>
+          <div className="two-code-panes">
+            <CodePane
+              lang="graphql"
+              textSize="0.8em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/26-gql-interface.graphql')}
+            />
+            <CodePane
+              lang="graphql"
+              textSize="0.8em"
+              theme={codeTheme}
+              contentEditable
+              source={require('raw-loader!../assets/code-examples/27-gql-query-interface.graphql')}
+            />
+          </div>
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Documenting your schema
+          </Heading>
+          <CustomText>
+            GraphQL supports providing markdown-enabled descriptions within the schema, which makes it easy for consumers of the API to discover a field and how to use it.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="0.9em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/28-gql-describing-types.graphql')}
+          />
+        </Slide>
 
         <List style={{ width: "50%", margin: "auto" }}>
           <ListItem>https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</ListItem>

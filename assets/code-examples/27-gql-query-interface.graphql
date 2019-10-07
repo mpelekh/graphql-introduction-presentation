@@ -1,0 +1,20 @@
+query GetBooks {
+  schoolBooks {
+    title
+    ... on TextBook {
+      classes {
+        name
+      }
+    }
+    ... on ColoringBook {
+      colors {
+        name
+      }
+    }
+  }
+}
+
+
+
+
+
