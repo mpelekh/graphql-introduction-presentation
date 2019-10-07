@@ -547,6 +547,38 @@ export default class Presentation extends React.Component {
 
         <Slide textColor="textColorDark">
           <Heading size={5} textColor="headersColor">
+            Arguments
+          </Heading>
+          <CustomText>
+            We have the ability to pass arguments to fields.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="1.3em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/29-gql-arguments.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Operations with dynamic variables
+          </Heading>
+          <CustomText>
+            Aliases let you rename the result of a field to anything you want.
+          </CustomText>
+          <CodePane
+            lang="graphql"
+            textSize="0.8em"
+            theme={codeTheme}
+            contentEditable
+            source={require('raw-loader!../assets/code-examples/30-gql-aliases.graphql')}
+          />
+        </Slide>
+
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
             Input Types
           </Heading>
           <CustomText>

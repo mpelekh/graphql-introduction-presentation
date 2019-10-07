@@ -1,4 +1,5 @@
 type Query {
+  # Queries can have comments!
   getBooks: [Book]
   getAuthors: [Author]
 }

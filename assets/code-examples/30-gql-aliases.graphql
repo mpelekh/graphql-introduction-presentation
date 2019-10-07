@@ -1,0 +1,20 @@
+query GetFirstAndSecondBook($firstBookName: String, $secondBookName: String = "Default value") {
+  firstBook: getBook(title: $firstBookName) {
+    title
+    author {
+      name
+    }
+  }
+  secondBook: getBook(title: $secondBookName) {
+    title
+    author {
+      name
+    }
+  }
+}
+
+# Variables
+# {
+#   "firstBookName": "First Name",
+#   "secondBookName": "Second Name",
+# }
