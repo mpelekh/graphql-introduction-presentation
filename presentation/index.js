@@ -725,16 +725,50 @@ export default class Presentation extends React.Component {
           />
         </Slide>
 
-        <List style={{ width: "50%", margin: "auto" }}>
-          <ListItem>https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/</ListItem>
-          <ListItem>https://samnewman.io/patterns/architectural/bff/</ListItem>
-          <ListItem>https://medium.com/netflix-techblog/our-learnings-from-adopting-graphql-f099de39ae5f</ListItem>
-          <ListItem>https://github.blog/2016-09-14-the-github-graphql-api/</ListItem>
-          <ListItem>https://blog.logrocket.com/5-reasons-you-shouldnt-be-using-graphql-61c7846e7ed3/</ListItem>
-          <ListItem>https://github.com/graphql/graphql-spec</ListItem>
-          <ListItem>https://blog.apollographql.com/graphql-vs-falcor-4f1e9cbf7504</ListItem>
-        </List>
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Conclusions
+          </Heading>
+          <CustomText>
+            GraphQL is a powerful tool, and there are many reasons to choose GraphQL over REST. But don’t forget to choose the right tool for the right job
+          </CustomText>
+        </Slide>
 
+        <Slide textColor="textColorDark">
+          <Heading size={5} textColor="headersColor">
+            Useful Links
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href="https://graphql.github.io/graphql-spec/June2018/" target="_blank">GraphQL Specification</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://graphql.org/" target="_blank">graphql.org</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://www.apollographql.com/" target="_blank">Apollo platform</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://www.altexsoft.com/blog/engineering/graphql-core-features-architecture-pros-and-cons/" target="_blank">GraphQL: Core Features, Architecture, Pros and Cons</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://samnewman.io/patterns/architectural/bff/" target="_blank">Pattern: Backends For Frontends</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://medium.com/netflix-techblog/our-learnings-from-adopting-graphql-f099de39ae5f" target="_blank">Netflix: Our learnings from adopting GraphQL</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://github.blog/2016-09-14-the-github-graphql-api/" target="_blank">The GitHub GraphQL API</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="https://blog.logrocket.com/5-reasons-you-shouldnt-be-using-graphql-61c7846e7ed3/" target="_blank">5 reasons you shouldn’t be using GraphQL</Link>
+            </ListItem>
+
+            <ListItem>
+              <Link href="https://blog.apollographql.com/graphql-vs-falcor-4f1e9cbf7504" target="_blank">GraphQL vs. Falcor</Link>
+            </ListItem>
+          </List>
+        </Slide>
 
         <Slide>
           <Heading size={1} textColor="secondary">
